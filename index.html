@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAXEM — The Calm Canadian Tax Engine</title>
+    <meta name="description" content="A calm, understandable, and locally controlled Canadian income tax preparation environment. Built for clarity, transparency, and local user control.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Outfit:wght@300;400;500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Top Decorative Line matching AXEM Gold -->
+    <div class="top-accent-line"></div>
+
+    <!-- Navigation Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#" class="logo-container" id="logoLink">
+                <svg class="pillar-logo" width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Protective Roof / Crossbar of T -->
+                    <path d="M15 25 L85 25 L80 15 L20 15 Z" fill="#D4AF37" />
+                    <!-- Pillar Shaft -->
+                    <rect x="42" y="25" width="16" height="55" fill="#FFFDF9" rx="2" />
+                    <!-- Pillar Base -->
+                    <rect x="30" y="80" width="40" height="8" fill="#FFFDF9" rx="1" />
+                    <!-- Subtly shaded lines for classical architectural feel -->
+                    <line x1="47" y1="30" x2="47" y2="75" stroke="#1C2D42" stroke-width="2" />
+                    <line x1="53" y1="30" x2="53" y2="75" stroke="#1C2D42" stroke-width="2" />
+                </svg>
+                <div class="logo-text">
+                    <span class="logo-title">TAX<span class="gold-text">EM</span></span>
+                    <span class="logo-subtitle">CIVIC TECH</span>
+                </div>
+            </a>
+            <nav class="nav-links">
+                <a href="#philosophy">Our Philosophy</a>
+                <a href="#demo">Interactive Showcase</a>
+                <a href="#roadmap">US Roadmap</a>
+                <a href="#faq">Faq</a>
+            </nav>
+            <div class="header-cta">
+                <a href="#demo" class="btn btn-primary" id="headerCtaBtn">Try Demo</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <span class="badge">CIVIC TECHNOLOGY</span>
+                    <h1>The Canadian tax software that explains the return instead of hiding it.</h1>
+                    <p class="hero-lead">
+                        TAXEM is a calm, local-first Canadian income tax preparation environment. We reject aggressive upselling and dark patterns in favor of transparency, mathematical rigor, and dual-jurisdiction control (Quebec + Federal) from day one.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#demo" class="btn btn-gold">Explore 2024 / 2025 Demo</a>
+                        <a href="#philosophy" class="btn btn-secondary">Read Mission</a>
+                    </div>
+                </div>
+                <div class="hero-graphic">
+                    <div class="mock-device-wrapper">
+                        <div class="mock-header">
+                            <div class="dot red"></div>
+                            <div class="dot yellow"></div>
+                            <div class="dot green"></div>
+                            <span class="mock-title">taxem-engine-v1 // output_preview</span>
+                        </div>
+                        <div class="mock-body">
+                            <pre><code><span class="comment"># Computing Quebec + Federal Tax Return</span>
+<span class="key">Year:</span> 2025
+<span class="key">Jurisdiction:</span> QC + CA (Federal)
+<span class="key">Calculations:</span> DETERMINISTIC REPLAY OK
+<span class="key">Audit Checksum:</span> <span class="string">0x7F9B2C4E</span>
+------------------------------------------
+Net Income:       $52,400.00
+Federal Tax Owed:  $5,082.00
+Quebec Tax Owed:   $4,874.00
+------------------------------------------
+<span class="success">Status: Return Validated. Ready to Export.</span></code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Paradigm Shift Section -->
+        <section id="philosophy" class="comparison-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>A Paradigm Shift in Tax Software</h2>
+                    <p>Tax preparation doesn't have to feel like a casino. Here is how TAXEM does things differently.</p>
+                </div>
+                <div class="comparison-grid">
+                    <div class="comparison-card bad">
+                        <h3>Traditional Software</h3>
+                        <ul class="comparison-list">
+                            <li>
+                                <span class="icon">✕</span>
+                                <strong>Stressed & Gamified:</strong> Uses flashing refund loops and anxiety-inducing alerts to keep you hooked.
+                            </li>
+                            <li>
+                                <span class="icon">✕</span>
+                                <strong>Aggressive Upselling:</strong> Constant prompts to buy support, audit defense, or upgrade to "Deluxe."
+                            </li>
+                            <li>
+                                <span class="icon">✕</span>
+                                <strong>Cloud Lock-In:</strong> Forces your sensitive financial data onto remote servers under corporate control.
+                            </li>
+                            <li>
+                                <span class="icon">✕</span>
+                                <strong>Black-Box Calculations:</strong> Outputs numbers without explaining where they came from or how they were calculated.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card good">
+                        <h3>The TAXEM Way</h3>
+                        <ul class="comparison-list">
+                            <li>
+                                <span class="icon">✓</span>
+                                <strong>Calm & Plain:</strong> A serene, clean workspace that values focus, review, and accuracy over speed.
+                            </li>
+                            <li>
+                                <span class="icon">✓</span>
+                                <strong>Zero Gimmicks:</strong> Simple, transparent model. No upgrades, no upselling, and no manipulative UX.
+                            </li>
+                            <li>
+                                <span class="icon">✓</span>
+                                <strong>Local-First Control:</strong> Your data remains completely under your control, stored locally on your machine.
+                            </li>
+                            <li>
+                                <span class="icon">✓</span>
+                                <strong>Explainable Ledger:</strong> Every single calculation is fully auditable, explained line-by-line in plain language.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Demo Section -->
+        <section id="demo" class="demo-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Interactive Showcase</h2>
+                    <p>Experience the Neo-Retro design interface. Toggle between tax years, select a profile, and click on any ledger line to inspect the formulas and rules.</p>
+                </div>
+
+                <div class="demo-wrapper">
+                    <!-- Control Sidebar -->
+                    <div class="demo-controls">
+                        <div class="control-group">
+                            <label class="control-label">1. Select Tax Year</label>
+                            <div class="year-toggle-buttons">
+                                <button class="btn-toggle active" id="btnYear2025" data-year="2025">Tax Year 2025</button>
+                                <button class="btn-toggle" id="btnYear2024" data-year="2024">Tax Year 2024</button>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">2. Select Filing Scenario</label>
+                            <div class="scenario-selector-list">
+                                <button class="scenario-option active" id="scenarioSimple" data-scenario="simple">
+                                    <span class="scenario-title">Ordinary Employee (T4 / RL-1)</span>
+                                    <span class="scenario-desc">Single filer, simple slips, standard deductions.</span>
+                                </button>
+                                <button class="scenario-option" id="scenarioSelfEmployed" data-scenario="selfemployed">
+                                    <span class="scenario-title">Self-Employed Freelancer</span>
+                                    <span class="scenario-desc">Independent contractor, business expenses.</span>
+                                </button>
+                                <button class="scenario-option" id="scenarioHousehold" data-scenario="household">
+                                    <span class="scenario-title">Household with Family</span>
+                                    <span class="scenario-desc">Coupled filers, childcare expenses, joint deductions.</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">3. Select Theme Spec</label>
+                            <div class="theme-toggle-buttons">
+                                <button class="btn-toggle-theme active" id="btnThemeLedger" data-theme="ledger">Spec 1: Civic Ledger</button>
+                                <button class="btn-toggle-theme" id="btnThemeArch" data-theme="arch">Spec 2: The Architecture</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ledger / Output Panel (The Workspace) -->
+                    <div class="demo-display theme-ledger" id="demoDisplayContainer">
+                        <!-- Wood-tone border frame for the paper sheet -->
+                        <div class="wood-frame-decorator"></div>
+                        <div class="ledger-sheet" id="ledgerSheet">
+                            <!-- Ledger Header -->
+                            <div class="ledger-header">
+                                <div class="ledger-title-block">
+                                    <h3>TAXEM WORKFLOW ENGINE // CANADIAN TAX SUMMARY</h3>
+                                    <p>Jurisdiction: Canada (Federal) & Québec (Provincial)</p>
+                                </div>
+                                <div class="ledger-meta-block">
+                                    <span class="meta-label">TAX YEAR:</span> <span class="meta-val" id="ledgerYearVal">2025</span><br>
+                                    <span class="meta-label">STATUS:</span> <span class="meta-val success-text">AUDITED OK</span>
+                                </div>
+                            </div>
+
+                            <hr class="ledger-divider">
+
+                            <!-- Ledger Content -->
+                            <div class="ledger-body">
+                                <p class="ledger-section-title">Section 1: Total & Net Income</p>
+                                
+                                <div class="ledger-row clickable" data-explain="line10100">
+                                    <span class="line-num">Line 10100</span>
+                                    <span class="line-label">Employment Income (Federal T4 / QC RL-1)</span>
+                                    <span class="line-value" id="valLine10100">$54,200.00</span>
+                                </div>
+                                
+                                <div class="ledger-row clickable" data-explain="line15000">
+                                    <span class="line-num">Line 15000</span>
+                                    <span class="line-label">Total Income (Sum of all income sources)</span>
+                                    <span class="line-value" id="valLine15000">$54,200.00</span>
+                                </div>
+
+                                <div class="ledger-row clickable" data-explain="line23600">
+                                    <span class="line-num">Line 23600</span>
+                                    <span class="line-label">Net Income (Total income minus basic adjustments)</span>
+                                    <span class="line-value" id="valLine23600">$54,200.00</span>
+                                </div>
+
+                                <p class="ledger-section-title">Section 2: Deductions & Taxable Income</p>
+
+                                <div class="ledger-row clickable" data-explain="line20800">
+                                    <span class="line-num">Line 20800</span>
+                                    <span class="line-label">RRSP / REER Contribution Deductions</span>
+                                    <span class="line-value" id="valLine20800">$1,800.00</span>
+                                </div>
+
+                                <div class="ledger-row clickable" data-explain="line22000">
+                                    <span class="line-num">Line 22000</span>
+                                    <span class="line-label">Childcare Expenses (Frais de garde d'enfants)</span>
+                                    <span class="line-value" id="valLine22000">$0.00</span>
+                                </div>
+
+                                <div class="ledger-row clickable highlight-row" data-explain="line26000">
+                                    <span class="line-num">Line 26000</span>
+                                    <span class="line-label">Taxable Income (Basis for tax calculation)</span>
+                                    <span class="line-value" id="valLine26000">$52,400.00</span>
+                                </div>
+
+                                <p class="ledger-section-title">Section 3: Federal Calculations (Revenue Canada)</p>
+
+                                <div class="ledger-row clickable" data-explain="fedGross">
+                                    <span class="line-num">Step A</span>
+                                    <span class="line-label">Gross Federal Tax on Taxable Income</span>
+                                    <span class="line-value" id="valFedGross">$7,860.00</span>
+                                </div>
+
+                                <div class="ledger-row clickable" data-explain="line30000">
+                                    <span class="line-num">Line 30000</span>
+                                    <span class="line-label">Basic Personal Amount (Non-refundable credits)</span>
+                                    <span class="line-value" id="valLine30000">$15,705.00</span>
+                                </div>
+
+                                <div class="ledger-row clickable" data-explain="fedCredits">
+                                    <span class="line-num">Step B</span>
+                                    <span class="line-label">Total Federal Non-Refundable Credits (at 15%)</span>
+                                    <span class="line-value" id="valFedCredits">$2,778.00</span>
+                                </div>
+
+                                <div class="ledger-row clickable highlight-row" data-explain="fedNetTax">
+                                    <span class="line-num">Line 42000</span>
+                                    <span class="line-label">Net Federal Tax Owed</span>
+                                    <span class="line-value" id="valFedNetTax">$5,082.00</span>
+                                </div>
+
+                                <p class="ledger-section-title">Section 4: Provincial Calculations (Revenu Québec)</p>
+
+                                <div class="ledger-row clickable" data-explain="qcTaxable">
+                                    <span class="line-num">Line 299</span>
+                                    <span class="line-label">Quebec Taxable Income</span>
+                                    <span class="line-value" id="valQcTaxable">$52,400.00</span>
+                                </div>
+
+                                <div class="ledger-row clickable" data-explain="qcGross">
+                                    <span class="line-num">Line 401</span>
+                                    <span class="line-label">Gross Quebec Tax on Taxable Income</span>
+                                    <span class="line-value" id="valQcGross">$7,860.00</span>
+                                </div>
+
+                                <div class="ledger-row clickable" data-explain="qcCredits">
+                                    <span class="line-num">Line 414</span>
+                                    <span class="line-label">Quebec Non-Refundable Credits (at 14%)</span>
+                                    <span class="line-value" id="valQcCredits">$2,986.00</span>
+                                </div>
+
+                                <div class="ledger-row clickable highlight-row" data-explain="qcNetTax">
+                                    <span class="line-num">Line 450</span>
+                                    <span class="line-label">Net Quebec Tax Owed</span>
+                                    <span class="line-value" id="valQcNetTax">$4,874.00</span>
+                                </div>
+
+                                <hr class="ledger-divider">
+
+                                <!-- Summary Box -->
+                                <div class="summary-box">
+                                    <div class="summary-item">
+                                        <span class="summary-label">Combined Tax Liability:</span>
+                                        <span class="summary-value" id="valCombinedTax">$9,956.00</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="summary-label">Total Taxes Withheld (at Source):</span>
+                                        <span class="summary-value" id="valWithheld">$11,500.00</span>
+                                    </div>
+                                    <div class="summary-item refund-item">
+                                        <span class="summary-label highlight-label" id="summaryStatusLabel">Expected Refund:</span>
+                                        <span class="summary-value success-text" id="valStatusAmount">$1,544.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sidebar Explanation Card (Explains the selected ledger item) -->
+                        <div class="explanation-card" id="explanationCard">
+                            <div class="explanation-header">
+                                <h4 id="explanationTitle">Formula & Rule Inspector</h4>
+                                <button class="close-btn" id="closeExplanationBtn">&times;</button>
+                            </div>
+                            <div class="explanation-body">
+                                <div class="rule-ref">
+                                    <span class="rule-badge" id="explanationJurisdiction">FEDERAL</span>
+                                    <span class="rule-code" id="explanationSection">Section 117</span>
+                                </div>
+                                <p class="explanation-text" id="explanationText">
+                                    Select any row in the ledger document to inspect the exact mathematical formula, provincial/federal rule coupling, and detailed breakdown.
+                                </p>
+                                <div class="explanation-formula-block" id="explanationFormulaBlock">
+                                    <span class="formula-label">Deterministic Formula:</span>
+                                    <code class="formula-code" id="explanationFormula">Select an item above</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- US Roadmap Section -->
+        <section id="roadmap" class="roadmap-section">
+            <div class="container">
+                <div class="roadmap-wrapper">
+                    <div class="roadmap-text">
+                        <span class="badge badge-gold">ROADMAP</span>
+                        <h2>Expanding to the United States</h2>
+                        <p>
+                            Our core mission of reducing financial anxiety is a cross-border challenge. For next season, we are actively preparing modular extensions to support United States tax filings.
+                        </p>
+                        <p>
+                            To ensure the same high level of engineering discipline and simplicity, we will start with states that have **Federal-Only** income tax returns (meaning no additional state income tax filings).
+                        </p>
+                        <div class="roadmap-steps">
+                            <div class="roadmap-step active">
+                                <span class="step-num">1</span>
+                                <div>
+                                    <h4>Canada (Quebec & Federal)</h4>
+                                    <p>Dual-jurisdiction calculation engine fully operational and verified for 2024 and 2025.</p>
+                                </div>
+                            </div>
+                            <div class="roadmap-step">
+                                <span class="step-num">2</span>
+                                <div>
+                                    <h4>United States (Federal & Florida)</h4>
+                                    <p>Introducing the IRS 1040 layout and Florida state-free validation for the upcoming tax cycle.</p>
+                                </div>
+                            </div>
+                            <div class="roadmap-step">
+                                <span class="step-num">3</span>
+                                <div>
+                                    <h4>Additional Federal-Only States</h4>
+                                    <p>Expanding support to Texas, Washington, Nevada, Wyoming, South Dakota, and Alaska.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="roadmap-graphic">
+                        <svg class="map-graphic" width="100%" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Stylized Border Map Outline -->
+                            <rect x="10" y="10" width="380" height="280" rx="12" fill="#0E1E38" stroke="#1D3E6B" stroke-width="2" />
+                            <circle cx="200" cy="100" r="8" fill="#D4AF37" class="pulse-point" />
+                            <text x="200" y="125" fill="#FFFDF9" font-family="'Outfit', sans-serif" font-size="12" text-anchor="middle">Quebec HQ (Engine v1)</text>
+                            
+                            <line x1="200" y1="100" x2="260" y2="220" stroke="#D4AF37" stroke-width="1.5" stroke-dasharray="4 4" />
+                            <circle cx="260" cy="220" r="6" fill="#D4AF37" />
+                            <text x="260" y="240" fill="#D4AF37" font-family="'Outfit', sans-serif" font-size="11" text-anchor="middle">Florida (US Roadshow)</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Learn more about our local-first architecture and civic principles.</p>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-card">
+                        <h4>Is TAXEM online or offline?</h4>
+                        <p>It is designed to run entirely locally. The website you are viewing now is a promo showcase, but the actual TAXEM engine compiles and runs on your machine. Your financial information never uploads to our servers.</p>
+                    </div>
+                    <div class="faq-card">
+                        <h4>Why do you emphasize Quebec?</h4>
+                        <p>Quebec has a separate, highly distinct provincial tax filing system. Most software treats it as an afterthought. We built our architecture to natively support dual-jurisdiction coupling from the ground up.</p>
+                    </div>
+                    <div class="faq-card">
+                        <h4>Is it certified by the CRA and Revenu Québec?</h4>
+                        <p>This is currently a prototype and promo showcase for the 2024 and 2025 tax calculations. We are actively organizing reference materials and structuring calculations to prepare for formal certification cycles.</p>
+                    </div>
+                    <div class="faq-card">
+                        <h4>Will it always be free from upsells?</h4>
+                        <p>Yes. The platform is built on civic tech principles. There will never be "paywalls for deductions" or unexpected upgrade fees. We charge a flat fee for the executable package, or you can build it from source.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo-block">
+                    <span class="logo-title">TAX<span class="gold-text">EM</span></span>
+                </div>
+                <p>A Civic Technology initiative under the AXEM Technology ecosystem.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#philosophy">Mission</a>
+                <a href="https://golda.global" target="_blank" rel="noopener">Golda.global</a>
+                <a href="https://gouddi.app" target="_blank" rel="noopener">GoudDi Wallet</a>
+                <a href="mailto:contact@axem.tech">Support</a>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2026 AXEM Technology. All rights reserved. Designed to respect user dignity.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
