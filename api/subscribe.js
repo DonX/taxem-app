@@ -48,7 +48,8 @@ module.exports = async (req, res) => {
         email: email.trim(),
         unsubscribed: false,
         properties: {
-          locale: typeof locale === 'string' ? locale.trim() : 'en'
+          locale: typeof locale === 'string' ? locale.trim() : 'en',
+          site: 'taxem.ca'
         }
       }),
     });
