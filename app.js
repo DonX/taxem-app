@@ -114,8 +114,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Detailed Explanations for each click target
-    const explanations = {
+    // State Variables
+    const isFr = window.location.pathname.includes('/fr');
+
+    // Detailed Explanations for each click target in English
+    const explanationsEn = {
         'line10100': {
             title: 'Employment Income',
             jurisdiction: 'SLIP INPUTS',
@@ -216,6 +219,110 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // Detailed Explanations in French
+    const explanationsFr = {
+        'line10100': {
+            title: "Revenu d'emploi",
+            jurisdiction: "FEUILLETS D'IMPÔT",
+            section: "Case 14 du T4 / Case A du RL-1",
+            text: "Il s'agit du total brut de vos revenus d'emploi déclarés sur vos feuillets T4 (fédéral) et Relevés 1 (provincial). TAXEM concilie les écarts automatiquement.",
+            formula: "Somme(T4.Case14) + Somme(RL-1.CaseA)"
+        },
+        'line15000': {
+            title: "Revenu total",
+            jurisdiction: "FÉDÉRAL + QUÉBEC",
+            section: "Ligne 15000 / Ligne 199",
+            text: "Le revenu total de toutes provenances (emploi, travail autonome, pensions, placements et prestations) avant l'application de toute déduction.",
+            formula: "Ligne 10100 + Ligne 12100 + Ligne 13500 + ..."
+        },
+        'line23600': {
+            title: "Revenu net",
+            jurisdiction: "FÉDÉRAL + QUÉBEC",
+            section: "Ligne 23600 / Ligne 275",
+            text: "Votre revenu total moins les ajustements de base. Ce montant est crucial car il détermine votre admissibilité aux allocations familiales, aux crédits de TPS et aux remboursements provinciaux.",
+            formula: "Revenu total (Ligne 15000) - Ajustements (Ligne 20700 + ...)"
+        },
+        'line20800': {
+            title: "Déduction pour REER",
+            jurisdiction: "FÉDÉRAL + QUÉBEC",
+            section: "Ligne 20800 / Ligne 214",
+            text: "Une déduction hautement stratégique. Les cotisations au Régime enregistré d'épargne-retraite (REER/RRSP) réduisent directement votre revenu imposable, abaissant l'assiette fiscale.",
+            formula: "Min(LimiteDeCotisation, CotisationsRéellesDéclarées)"
+        },
+        'line22000': {
+            title: "Frais de garde d'enfants",
+            jurisdiction: "DÉDUCTION FED / CRÉDIT QC",
+            section: "Formulaire T778 / Annexe C",
+            text: "Frais versés pour la garde d'enfants afin de vous permettre de travailler ou d'étudier. Au fédéral, cela agit comme déduction. Au Québec, cela génère un crédit d'impôt remboursable.",
+            formula: "Fédéral : Déduction T778 | Québec : Crédit Annexe C (jusqu'à 75 %)"
+        },
+        'line26000': {
+            title: "Revenu imposable",
+            jurisdiction: "FÉDÉRAL + QUÉBEC",
+            section: "Ligne 26000 / Ligne 299",
+            text: "Le montant final du revenu ajusté utilisé pour déterminer vos tranches d'imposition progressives. Les taux d'imposition sont appliqués strictement sur cette ligne.",
+            formula: "Revenu net (Ligne 23600) - Déductions spéciales"
+        },
+        'fedGross': {
+            title: "Impôt fédéral brut",
+            jurisdiction: "FÉDÉRAL (ARC)",
+            section: "Annexe 1 - Étape 3",
+            text: "L'impôt brut initial calculé en utilisant les paliers d'imposition progressifs du Canada (ex. : 15 % sur la première tranche jusqu'à ~55k $, 20,5 % sur le palier suivant).",
+            formula: "TauxPalier1 * RevenuImposable + TauxPalier2 * MontantExcédentaire"
+        },
+        'line30000': {
+            title: "Montant personnel de base",
+            jurisdiction: "CONSTANTE FÉDÉRALE",
+            section: "Ligne 30000",
+            text: "Une franchise d'impôt accordée à tous les contribuables canadiens. En 2025, le montant personnel de base fédéral est fixé à 15 705 $ (indexé de 15 000 $ en 2024).",
+            formula: "Valeur fixe (15 705 $ pour 2025 | 15 000 $ pour 2024)"
+        },
+        'fedCredits': {
+            title: "Crédits fédéraux non remboursables",
+            jurisdiction: "FÉDÉRAL (ARC)",
+            section: "Ligne 35000 / Annexe 1",
+            text: "Vos crédits non remboursables (personnel de base, RPC, AE) sont additionnés puis multipliés par le taux le plus bas du fédéral (15 %) pour réduire l'impôt brut.",
+            formula: "Somme(Ligne 30000 + Ligne 30800 + Ligne 31200) * 15,00 %"
+        },
+        'fedNetTax': {
+            title: "Impôt fédéral net dû",
+            jurisdiction: "FÉDÉRAL (ARC)",
+            section: "Ligne 42000",
+            text: "Votre obligation nette envers l'Agence du revenu du Canada. Cela représente l'impôt réel que vous devez au fédéral après déduction des crédits non remboursables.",
+            formula: "Max(0, Gross Federal Tax - Federal Credits)"
+        },
+        'qcTaxable': {
+            title: "Revenu imposable du Québec",
+            jurisdiction: "QUÉBEC (REVENU QC)",
+            section: "Ligne 299",
+            text: "Le Québec recalcule le revenu imposable de manière indépendante. Certains avantages payés par l'employeur peuvent faire différer ce montant du montant fédéral.",
+            formula: "Revenu imposable fédéral + Ajustements spécifiques au QC"
+        },
+        'qcGross': {
+            title: "Impôt québécois brut",
+            jurisdiction: "QUÉBEC (REVENU QC)",
+            section: "Ligne 401",
+            text: "L'impôt provincial de base calculé à l'aide des paliers d'imposition progressifs du Québec (14 % sur la première tranche, puis jusqu'à 19 % pour les paliers suivants).",
+            formula: "TauxPalierQC1 * RevenuImposableQC + TauxPalierQC2 * MontantExcédentaire"
+        },
+        'qcCredits': {
+            title: "Crédits du Québec non remboursables",
+            jurisdiction: "QUÉBEC (REVENU QC)",
+            section: "Ligne 414",
+            text: "Vos crédits provinciaux non remboursables (montant personnel de base, cotisations RQAP) sont cumulés puis multipliés par le taux québécois minimum (14 %) pour réduire votre impôt provincial.",
+            formula: "Somme(QC_MontantDeBase + CotisationsQC) * 14,00 %"
+        },
+        'qcNetTax': {
+            title: "Impôt québécois net dû",
+            jurisdiction: "QUÉBEC (REVENU QC)",
+            section: "Ligne 450",
+            text: "L'impôt net dû au gouvernement du Québec après application des crédits d'impôt provinciaux et indexations.",
+            formula: "Max(0, Impôt québécois brut - Crédits québécois)"
+        }
+    };
+
+    const explanations = isFr ? explanationsFr : explanationsEn;
+
     // State Variables
     let currentYear = '2025';
     let currentScenario = 'simple';
@@ -240,7 +347,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // UI Updates: Populate numbers dynamically
     function formatCurrency(value) {
-        return new Intl.NumberFormat('en-CA', { style: 'currency', currency: 'CAD' }).format(value);
+        const locale = isFr ? 'fr-CA' : 'en-CA';
+        return new Intl.NumberFormat(locale, { style: 'currency', currency: 'CAD' }).format(value);
     }
 
     function calculateRefundOrOwed(data) {
@@ -286,11 +394,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const statusAmount = document.getElementById('valStatusAmount');
 
         if (netRefund >= 0) {
-            statusLabel.textContent = 'Expected Refund:';
+            statusLabel.textContent = isFr ? 'Remboursement attendu :' : 'Expected Refund:';
             statusAmount.textContent = formatCurrency(netRefund);
             statusAmount.className = 'summary-value success-text';
         } else {
-            statusLabel.textContent = 'Tax Balance Owed:';
+            statusLabel.textContent = isFr ? "Solde d'impôt dû :" : 'Tax Balance Owed:';
             statusAmount.textContent = formatCurrency(Math.abs(netRefund));
             statusAmount.className = 'summary-value error-text';
         }
@@ -384,7 +492,8 @@ document.addEventListener('DOMContentLoaded', () => {
         explanationFormula.textContent = itemInfo.formula;
         
         // Append context-aware value info to explain text
-        explanationText.innerHTML = `${itemInfo.text}<br><br><strong>Current Active Value:</strong> ${formatCurrency(lineVal)} (${currentYear})`;
+        const labelActiveValue = isFr ? "Valeur active actuelle :" : "Current Active Value:";
+        explanationText.innerHTML = `${itemInfo.text}<br><br><strong>${labelActiveValue}</strong> ${formatCurrency(lineVal)} (${currentYear})`;
 
         // Slide/fade explanation card in
         explanationCard.classList.add('show');
@@ -414,4 +523,62 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize Page Data
     updateLedgerData();
+
+    // Newsletter subscription form handler
+    const subscribeForm = document.getElementById('subscribeForm');
+    if (subscribeForm) {
+        subscribeForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const emailInput = document.getElementById('subscribeEmail');
+            const submitBtn = document.getElementById('btnSubscribe');
+            const msgBox = document.getElementById('subscribeMessage');
+            
+            if (!emailInput || !submitBtn || !msgBox) return;
+            
+            const email = emailInput.value.trim();
+            if (!email) return;
+            
+            const locale = isFr ? 'fr' : 'en';
+            
+            // Set loading state
+            submitBtn.disabled = true;
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.textContent = locale === 'fr' ? 'Inscription...' : 'Subscribing...';
+            msgBox.className = 'subscribe-message';
+            msgBox.textContent = '';
+            
+            try {
+                const response = await fetch('/api/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, locale }),
+                });
+                
+                if (response.ok) {
+                    msgBox.className = 'subscribe-message success';
+                    msgBox.textContent = locale === 'fr' 
+                        ? '✓ Merci pour votre inscription !' 
+                        : '✓ Thank you for subscribing!';
+                    emailInput.value = '';
+                } else {
+                    const data = await response.json();
+                    msgBox.className = 'subscribe-message error';
+                    msgBox.textContent = data.error || (locale === 'fr' 
+                        ? 'Une erreur est survenue. Veuillez réessayer.' 
+                        : 'An error occurred. Please try again.');
+                }
+            } catch (err) {
+                console.error('Subscription error:', err);
+                msgBox.className = 'subscribe-message error';
+                msgBox.textContent = locale === 'fr' 
+                    ? 'Erreur de connexion. Veuillez réessayer.' 
+                    : 'Connection error. Please try again.';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+            }
+        });
+    }
 });
