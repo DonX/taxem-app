@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trust & Transparency — TAXEM</title>
+    <meta name="description" content="TAXEM's civic tech architecture, security posture, SIN masking policies, and commitment to transparent tax filing.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Outfit:wght@300;400;500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .content-layout {
+            padding: 80px 0;
+            position: relative;
+        }
+        .content-layout::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+        .content-card {
+            background-color: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 48px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            margin-top: 32px;
+            position: relative;
+            z-index: 1;
+        }
+        .content-card h3 {
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: var(--color-gold);
+            font-size: 20px;
+        }
+        .content-card h3:first-of-type {
+            margin-top: 0;
+        }
+        .content-card p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--color-text-muted);
+        }
+        .content-card ul {
+            margin-left: 24px;
+            margin-bottom: 24px;
+            color: var(--color-text-muted);
+        }
+        .content-card li {
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--color-gold);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 24px;
+            transition: color 0.2s ease, transform 0.2s ease;
+            gap: 8px;
+            z-index: 2;
+            position: relative;
+        }
+        .back-link:hover {
+            color: var(--color-gold-hover);
+            transform: translateX(-4px);
+        }
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
+        }
+        .trust-pillar {
+            background-color: #060B18;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 32px;
+        }
+        .trust-pillar h4 {
+            color: #FFFDF9;
+            margin-bottom: 12px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .trust-pillar p {
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--color-text-muted);
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Decorative Line -->
+    <div class="top-accent-line"></div>
+
+    <!-- Navigation Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo-container">
+                <svg class="pillar-logo" width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 25 L85 25 L80 15 L20 15 Z" fill="#D4AF37" />
+                    <rect x="42" y="25" width="16" height="55" fill="#FFFDF9" rx="2" />
+                    <rect x="30" y="80" width="40" height="8" fill="#FFFDF9" rx="1" />
+                    <line x1="47" y1="30" x2="47" y2="75" stroke="#1C2D42" stroke-width="2" />
+                    <line x1="53" y1="30" x2="53" y2="75" stroke="#1C2D42" stroke-width="2" />
+                </svg>
+                <div class="logo-text">
+                    <span class="logo-title">TAX<span class="gold-text">EM</span></span>
+                    <span class="logo-subtitle">CIVIC TECH</span>
+                </div>
+            </a>
+            <div class="header-cta">
+                <a href="fr/trust.html" class="lang-toggle-btn">FR</a>
+                <a href="index.html" class="btn btn-secondary">Back to Home</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container content-layout">
+        <a href="index.html" class="back-link">
+            <span>&larr;</span> Back to Home
+        </a>
+
+        <div class="section-header" style="text-align: left; margin: 0;">
+            <span class="badge">CIVIC PRINCIPLES</span>
+            <h2>Trust & Transparency</h2>
+            <p>Why we build local-first software and how we protect taxpayer data dignity.</p>
+        </div>
+
+        <div class="content-card">
+            <h3>Our Security & Privacy Pillars</h3>
+            <p>
+                TAXEM rejects the modern model of corporate tax software that traps user data in the cloud to fuel tracking, cross-selling, and database lock-in. Instead, we design software that treats personal tax returns as private local ledgers.
+            </p>
+
+            <div class="trust-grid">
+                <div class="trust-pillar">
+                    <h4>1. Local-First Control</h4>
+                    <p>TAXEM is designed to compile and run entirely on your local machine. Your personal information, T4/Relevé slips, and calculations never upload to our servers.</p>
+                </div>
+                <div class="trust-pillar">
+                    <h4>2. Explicit Transparency</h4>
+                    <p>Every computed value on our ledger can be clicked to inspect its underlying formula, legal references, and dual-jurisdiction variables.</p>
+                </div>
+                <div class="trust-pillar">
+                    <h4>3. Zero Predatory Upsells</h4>
+                    <p>There are no premium paywalls for specific tax credits, no hidden fees for claiming deductions, and no manipulative interface loops.</p>
+                </div>
+            </div>
+
+            <h3>Taxpayer Data Protections</h3>
+            <p>
+                We build architectural guardrails to guarantee security boundaries are respected. As we move closer to formal certification phases, the software implements:
+            </p>
+            <ul>
+                <li><strong>SIN Display Masking:</strong> In compliance with CRA security expectations, the first five digits of your Social Insurance Number are automatically masked (e.g., <code>***-***-567</code>) on-screen and on printed records to prevent shoulder-surfing and identity theft.</li>
+                <li><strong>Secured Environment:</strong> The software operates in a sandboxed runtime environment, storing data strictly in encrypted local configuration directories.</li>
+                <li><strong>Compliance Alignment:</strong> We design our software to follow the Tax Filer Electronic Connection (TFEC) Code of Conduct and Québec’s Law 25 (Act respecting the protection of personal information in the private sector) regarding regional data storage and data custody boundaries.</li>
+            </ul>
+
+            <h3>Open Source Civic Tech</h3>
+            <p>
+                TAXEM believes that democratic tools should be transparent. Our code, test suites, and parameter configurations are open-source. This allows developers, security auditors, and citizens to inspect and compile the software independently, ensuring that the engine computes returns honestly and without bias.
+            </p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo-block">
+                    <span class="logo-title">TAX<span class="gold-text">EM</span></span>
+                </div>
+                <p>A Civic Technology initiative under the AXEM Technology ecosystem.</p>
+            </div>
+            <div class="footer-links">
+                <a href="readiness.html">Certification Readiness</a>
+                <a href="trust.html">Trust & Transparency</a>
+                <a href="scope.html">Scope & Limitations</a>
+                <a href="https://golda.global" target="_blank" rel="noopener">Golda.global</a>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2026 AXEM Technology. All rights reserved. Designed to respect user dignity.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

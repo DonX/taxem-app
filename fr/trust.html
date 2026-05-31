@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confiance & Transparence — TAXEM</title>
+    <meta name="description" content="Architecture de technologie civique de TAXEM, sécurité, politique de masquage du NAS et engagement pour une déclaration de revenus transparente.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Outfit:wght@300;400;500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .content-layout {
+            padding: 80px 0;
+            position: relative;
+        }
+        .content-layout::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+        .content-card {
+            background-color: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 48px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            margin-top: 32px;
+            position: relative;
+            z-index: 1;
+        }
+        .content-card h3 {
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: var(--color-gold);
+            font-size: 20px;
+        }
+        .content-card h3:first-of-type {
+            margin-top: 0;
+        }
+        .content-card p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--color-text-muted);
+        }
+        .content-card ul {
+            margin-left: 24px;
+            margin-bottom: 24px;
+            color: var(--color-text-muted);
+        }
+        .content-card li {
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--color-gold);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 24px;
+            transition: color 0.2s ease, transform 0.2s ease;
+            gap: 8px;
+            z-index: 2;
+            position: relative;
+        }
+        .back-link:hover {
+            color: var(--color-gold-hover);
+            transform: translateX(-4px);
+        }
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
+        }
+        .trust-pillar {
+            background-color: #060B18;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 32px;
+        }
+        .trust-pillar h4 {
+            color: #FFFDF9;
+            margin-bottom: 12px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .trust-pillar p {
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--color-text-muted);
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Decorative Line -->
+    <div class="top-accent-line"></div>
+
+    <!-- Navigation Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="../fr/index.html" class="logo-container">
+                <svg class="pillar-logo" width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 25 L85 25 L80 15 L20 15 Z" fill="#D4AF37" />
+                    <rect x="42" y="25" width="16" height="55" fill="#FFFDF9" rx="2" />
+                    <rect x="30" y="80" width="40" height="8" fill="#FFFDF9" rx="1" />
+                    <line x1="47" y1="30" x2="47" y2="75" stroke="#1C2D42" stroke-width="2" />
+                    <line x1="53" y1="30" x2="53" y2="75" stroke="#1C2D42" stroke-width="2" />
+                </svg>
+                <div class="logo-text">
+                    <span class="logo-title">TAX<span class="gold-text">EM</span></span>
+                    <span class="logo-subtitle">CIVIC TECH</span>
+                </div>
+            </a>
+            <div class="header-cta">
+                <a href="../trust.html" class="lang-toggle-btn">EN</a>
+                <a href="../fr/index.html" class="btn btn-secondary">Retour à l'accueil</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container content-layout">
+        <a href="../fr/index.html" class="back-link">
+            <span>&larr;</span> Retour à l'accueil
+        </a>
+
+        <div class="section-header" style="text-align: left; margin: 0;">
+            <span class="badge">PRINCIPES CIVIQUES</span>
+            <h2>Confiance & Transparence</h2>
+            <p>Pourquoi nous construisons des logiciels locaux et comment nous protégeons la dignité des données des contribuables.</p>
+        </div>
+
+        <div class="content-card">
+            <h3>Nos piliers de sécurité et de confidentialité</h3>
+            <p>
+                TAXEM rejette le modèle moderne des logiciels fiscaux d'entreprise qui piègent les données des utilisateurs dans le cloud pour alimenter le suivi publicitaire, la vente incitative et le verrouillage des bases de données. À l'inverse, nous concevons des outils qui traitent les déclarations de revenus comme des livres de comptes locaux privés.
+            </p>
+
+            <div class="trust-grid">
+                <div class="trust-pillar">
+                    <h4>1. Contrôle local d'abord</h4>
+                    <p>TAXEM est conçu pour être compilé et exécuté entièrement sur votre machine locale. Vos renseignements personnels, feuillets T4/Relevé 1 et calculs ne sont jamais téléversés sur nos serveurs.</p>
+                </div>
+                <div class="trust-pillar">
+                    <h4>2. Transparence explicite</h4>
+                    <p>Chaque valeur calculée sur notre grand livre peut être cliquée pour inspecter sa formule mathématique, ses références légales et ses variables juridictionnelles.</p>
+                </div>
+                <div class="trust-pillar">
+                    <h4>3. Zéro vente incitative</h4>
+                    <p>Il n'y a pas de barrière payante pour réclamer des crédits d'impôt, aucun frais caché pour les déductions, et aucune boucle d'interface manipulatoire.</p>
+                </div>
+            </div>
+
+            <h3>Protection des données des contribuables</h3>
+            <p>
+                Nous développons des garde-fous architecturaux pour garantir le respect de la confidentialité. En préparation des phases de certification formelle, le logiciel met en œuvre :
+            </p>
+            <ul>
+                <li><strong>Masquage du NAS :</strong> Conformément aux directives de sécurité de l'ARC, les cinq premiers chiffres de votre numéro d'assurance sociale sont automatiquement masqués (ex. : <code>***-***-567</code>) sur écran et sur les documents générés afin de prévenir l'usurpation d'identité.</li>
+                <li><strong>Environnement sécurisé :</strong> Le logiciel s'exécute localement et stocke ses fichiers de configuration de manière sécurisée dans vos répertoires système locaux.</li>
+                <li><strong>Alignement réglementaire :</strong> Le logiciel est structuré pour respecter le code de conduite de l'ACDR (Association canadienne des concepteurs de logiciels de remplissage de déclarations de revenus) et la Loi 25 du Québec (Loi sur la protection des renseignements personnels dans le secteur privé) quant aux frontières physiques de la garde des données.</li>
+            </ul>
+
+            <h3>Technologie civique open-source</h3>
+            <p>
+                TAXEM estime que les outils démocratiques doivent être transparents. Notre code, nos suites de tests et nos structures de paramètres sont ouverts. Cela permet aux développeurs, aux auditeurs de sécurité et aux citoyens d'inspecter et de compiler le logiciel de manière autonome, garantissant que le moteur calcule vos impôts en toute intégrité et sans biais commercial.
+            </p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo-block">
+                    <span class="logo-title">TAX<span class="gold-text">EM</span></span>
+                </div>
+                <p>Une initiative de technologie civique sous l'écosystème AXEM Technology.</p>
+            </div>
+            <div class="footer-links">
+                <a href="../fr/readiness.html">Préparation à la certification</a>
+                <a href="../fr/trust.html">Confiance & Transparence</a>
+                <a href="../fr/scope.html">Portée & Limites</a>
+                <a href="https://golda.global" target="_blank" rel="noopener">Golda.global</a>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2026 AXEM Technology. Tous droits réservés. Conçu pour respecter la dignité des utilisateurs.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

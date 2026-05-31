@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope & Limitations — TAXEM</title>
+    <meta name="description" content="TAXEM engine calculations coverage, supported tax slips, regional limitations, and filing exclusion rules.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Outfit:wght@300;400;500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .content-layout {
+            padding: 80px 0;
+            position: relative;
+        }
+        .content-layout::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+        .content-card {
+            background-color: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 48px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            margin-top: 32px;
+            position: relative;
+            z-index: 1;
+        }
+        .content-card h3 {
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: var(--color-gold);
+            font-size: 20px;
+        }
+        .content-card h3:first-of-type {
+            margin-top: 0;
+        }
+        .content-card p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--color-text-muted);
+        }
+        .content-card ul {
+            margin-left: 24px;
+            margin-bottom: 24px;
+            color: var(--color-text-muted);
+        }
+        .content-card li {
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--color-gold);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 24px;
+            transition: color 0.2s ease, transform 0.2s ease;
+            gap: 8px;
+            z-index: 2;
+            position: relative;
+        }
+        .back-link:hover {
+            color: var(--color-gold-hover);
+            transform: translateX(-4px);
+        }
+        .scope-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin: 24px 0;
+        }
+        .scope-box {
+            background-color: #060B18;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 24px;
+        }
+        .scope-box h4 {
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+        .scope-box.supported h4 {
+            color: #6BEB93;
+        }
+        .scope-box.unsupported h4 {
+            color: #FF6B6B;
+        }
+        @media (max-width: 768px) {
+            .scope-columns {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Decorative Line -->
+    <div class="top-accent-line"></div>
+
+    <!-- Navigation Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo-container">
+                <svg class="pillar-logo" width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 25 L85 25 L80 15 L20 15 Z" fill="#D4AF37" />
+                    <rect x="42" y="25" width="16" height="55" fill="#FFFDF9" rx="2" />
+                    <rect x="30" y="80" width="40" height="8" fill="#FFFDF9" rx="1" />
+                    <line x1="47" y1="30" x2="47" y2="75" stroke="#1C2D42" stroke-width="2" />
+                    <line x1="53" y1="30" x2="53" y2="75" stroke="#1C2D42" stroke-width="2" />
+                </svg>
+                <div class="logo-text">
+                    <span class="logo-title">TAX<span class="gold-text">EM</span></span>
+                    <span class="logo-subtitle">CIVIC TECH</span>
+                </div>
+            </a>
+            <div class="header-cta">
+                <a href="fr/scope.html" class="lang-toggle-btn">FR</a>
+                <a href="index.html" class="btn btn-secondary">Back to Home</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container content-layout">
+        <a href="index.html" class="back-link">
+            <span>&larr;</span> Back to Home
+        </a>
+
+        <div class="section-header" style="text-align: left; margin: 0;">
+            <span class="badge">SPECIFICATION COVERAGE</span>
+            <h2>Scope & Limitations</h2>
+            <p>What calculations the TAXEM engine supports and what scenarios are gated under v1.</p>
+        </div>
+
+        <div class="content-card">
+            <h3>Ontario-First Scope Under Review</h3>
+            <p>
+                To maintain high engineering standards, the v1 version of TAXEM is restricted to a declared footprint of personal tax returns. Our active certification direction is centered on <strong>Ontario residents</strong> filing individual returns (T1) with basic slips. 
+            </p>
+
+            <div class="scope-columns">
+                <div class="scope-box supported">
+                    <h4>Supported Calculations</h4>
+                    <ul>
+                        <li>Federal individual calculations (T1).</li>
+                        <li>Ontario provincial tax (Form ON428) including 5 progressive tax bands and 2-tier surtaxes.</li>
+                        <li>Ontario tax reductions & family credits.</li>
+                        <li>Ontario refundable credits (Form ON479) including political contributions, flow-through shares, and senior homeowners' property tax grants.</li>
+                        <li>Basic employment slip adjustments (T4, T5, RRSP/REER contributions).</li>
+                    </ul>
+                </div>
+                <div class="scope-box unsupported">
+                    <h4>Currently Unsupported</h4>
+                    <ul>
+                        <li>Filing outside of Ontario (BC, AB, SK, MB, etc.).</li>
+                        <li>Quebec provincial return filing (TP-1). See below.</li>
+                        <li>Self-employment income (Form T2125).</li>
+                        <li>Rental properties (Form T776).</li>
+                        <li>Multi-jurisdictional filings (Form T2203).</li>
+                        <li>Deceased taxpayer returns or bankruptcy filings.</li>
+                        <li>Ontario Energy & Property Tax Benefit application (Form ON-BEN).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Quebec TP-1 Calculations Presence</h3>
+            <p>
+                The TAXEM engine architecture natively supports dual-jurisdiction coupling (Federal + Quebec) from day one. Although the <strong>Quebec TP-1 calculation logic is present inside the engine code</strong>, Revenu Québec NetFile authorization and TPF-1.U layout validation are <strong>deferred</strong> for this cycle. 
+            </p>
+            <p>
+                Quebec residents may use the calculation engine for comparative estimation, but they cannot print or transmit TP-1 filings through TAXEM yet, and must file their Quebec returns elsewhere.
+            </p>
+
+            <h3>Filing Eligibility Validation Seam</h3>
+            <p>
+                TAXEM does not silently compute incorrect amounts when faced with unsupported data. The engine contains an append-only <strong>filing eligibility checker</strong>. When a user imports tax slips or inputs personal data, the checker validates the profile against our supported parameters. If an unsupported scenario (such as self-employment income or a non-Ontario address) is detected, the engine flags the return as <code>unsupported</code>, halts transmission paths, and prompts the user to file through other official channels.
+            </p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo-block">
+                    <span class="logo-title">TAX<span class="gold-text">EM</span></span>
+                </div>
+                <p>A Civic Technology initiative under the AXEM Technology ecosystem.</p>
+            </div>
+            <div class="footer-links">
+                <a href="readiness.html">Certification Readiness</a>
+                <a href="trust.html">Trust & Transparency</a>
+                <a href="scope.html">Scope & Limitations</a>
+                <a href="https://golda.global" target="_blank" rel="noopener">Golda.global</a>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2026 AXEM Technology. All rights reserved. Designed to respect user dignity.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -38,16 +38,29 @@
             </a>
             <nav class="nav-links">
                 <a href="#philosophy">Notre philosophie</a>
+                <a href="readiness.html">Préparation</a>
+                <a href="trust.html">Confiance</a>
+                <a href="scope.html">Portée</a>
                 <a href="#demo">Démonstration</a>
-                <a href="#roadmap">Feuille de route US</a>
                 <a href="#faq">FAQ</a>
             </nav>
             <div class="header-cta">
-                <a href="/" class="lang-toggle-btn">EN</a>
+                <a href="../" class="lang-toggle-btn">EN</a>
                 <a href="#demo" class="btn btn-primary" id="headerCtaBtn">Essayer le démo</a>
             </div>
         </div>
     </header>
+
+    <!-- Disclaimer Banner -->
+    <div class="disclaimer-banner">
+        <div class="container disclaimer-container">
+            <span class="disclaimer-badge">PAS ENCORE CERTIFIÉ</span>
+            <span class="disclaimer-text">
+                TAXEM est un moteur fiscal civique en phase de développement. Il n'est pas encore certifié pour la transmission électronique directe (NETFILE) par l'ARC ou Revenu Québec. Portée limitée à l'Ontario sous examen. 
+                <a href="readiness.html" class="disclaimer-link">Lire la feuille de route de certification &rarr;</a>
+            </span>
+        </div>
+    </div>
 
     <main>
         <!-- Hero Section -->
@@ -348,6 +361,74 @@ Impôt Québec dû :   $4,874.00
             </div>
         </section>
 
+        <!-- Certification Roadmap Section -->
+        <section id="certification-roadmap" class="roadmap-section" style="border-top: 1px solid var(--color-border); background-color: rgba(6,11,24,0.2);">
+            <div class="container">
+                <div class="roadmap-wrapper">
+                    <div class="roadmap-text">
+                        <span class="badge badge-gold">PARCOURS DE CERTIFICATION</span>
+                        <h2>Feuille de route de certification Canada</h2>
+                        <p>
+                            L'accréditation officielle auprès des administrations fiscales est un processus annuel. Nous structurons activement le moteur TAXEM pour garantir sa conformité avec les normes techniques requises par l'Agence du revenu du Canada et Revenu Québec.
+                        </p>
+                        <p>
+                            Nous avons validé avec succès nos suites de tests locales et nous nous préparons à soumettre l'application pour le prochain cycle fiscal.
+                        </p>
+                        <div class="roadmap-steps">
+                            <div class="roadmap-step active">
+                                <span class="step-num">1</span>
+                                <div>
+                                    <h4>Validation locale et structures</h4>
+                                    <p>Validation de notre suite de 1645 tests. Intégration du module de validation de la portée de l'Ontario et du masquage du NAS.</p>
+                                </div>
+                            </div>
+                            <div class="roadmap-step">
+                                <span class="step-num">2</span>
+                                <div>
+                                    <h4>Enregistrement des partenaires (Automne)</h4>
+                                    <p>Soumission des demandes officielles auprès de la division EMPU de l'ARC et des services aux partenaires de Revenu Québec.</p>
+                                </div>
+                            </div>
+                            <div class="roadmap-step">
+                                <span class="step-num">3</span>
+                                <div>
+                                    <h4>Essais et validation (Hiver)</h4>
+                                    <p>Traitement et soumission des déclarations de test requises ainsi que des maquettes d'impression conformes à la norme IN-413-V (TPF-1.U).</p>
+                                </div>
+                            </div>
+                            <div class="roadmap-step">
+                                <span class="step-num">4</span>
+                                <div>
+                                    <h4>Ouverture et lancement (Février)</h4>
+                                    <p>Activation des fonctions de transmission électronique (NETFILE) après réception des lettres de confirmation officielles et des numéros TCI.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="roadmap-graphic">
+                        <div class="mock-device-wrapper" style="border-color: var(--color-gold); box-shadow: 0 10px 30px rgba(212, 175, 55, 0.05);">
+                            <div class="mock-header" style="background-color: rgba(212, 175, 55, 0.05); border-bottom-color: rgba(212, 175, 55, 0.2);">
+                                <div class="dot red"></div>
+                                <div class="dot yellow"></div>
+                                <div class="dot green"></div>
+                                <span class="mock-title" style="color: var(--color-gold);">verification_harness_output // ok</span>
+                            </div>
+                            <div class="mock-body" style="font-size: 12px; line-height: 1.5;">
+                                <span class="comment"># Vérification du statut TAXEM</span><br>
+                                <span class="key">Validation schéma XML T1 :</span> RÉUSSIE<br>
+                                <span class="key">Règles d'erreur (EPS) :</span> 72/72 OK<br>
+                                <span class="key">Masquage affichage NAS :</span> ACTIF (***-***-****)<br>
+                                <span class="key">Cas de conciliation :</span> 10/10 REÇUS<br>
+                                <span class="key">Épreuve IN-413-V RQ :</span> PRÊTE<br>
+                                -------------------------------------<br>
+                                <span class="success">STATUT : CALCULS VÉRIFIÉS & PRÊT POUR CERTIFICATION</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- US Roadmap Section -->
         <section id="roadmap" class="roadmap-section">
             <div class="container">
@@ -418,8 +499,12 @@ Impôt Québec dû :   $4,874.00
                         <p>Le Québec a son propre système de déclaration de revenus provincial, très distinct. La plupart des logiciels le traitent comme un élément secondaire. Nous avons conçu notre architecture dès le départ pour intégrer nativement le couplage des deux paliers.</p>
                     </div>
                     <div class="faq-card">
-                        <h4>Est-il certifié par l'ARC et Revenu Québec ?</h4>
-                        <p>Il s'agit actuellement d'un prototype et d'une démonstration des calculs fiscaux pour 2024 et 2025. Nous structurons activement nos calculs pour préparer les cycles de certification formels.</p>
+                        <h4>Est-ce que TAXEM est certifié par l'ARC et Revenu Québec ?</h4>
+                        <p>Non, TAXEM est actuellement un prototype en phase de développement et n'est <strong>pas encore certifié</strong> pour la transmission électronique directe (NETFILE) par l'ARC ou Revenu Québec. Nous structurons activement nos calculs et nos maquettes pour préparer les cycles de certification formels par les canaux officiels dans une version ultérieure.</p>
+                    </div>
+                    <div class="faq-card">
+                        <h4>Quelles années fiscales et provinces sont prises en charge ?</h4>
+                        <p>TAXEM prend actuellement en charge les calculs pour les années d'imposition 2024 et 2025. Notre direction de certification active est limitée à l'Ontario, qui prend en charge les résidents de l'Ontario produisant des déclarations individuelles (déclaration T1 avec formulaires ON428 et ON479). Le moteur de calcul TP-1 du Québec est présent dans notre code pour assurer la pérennité de notre architecture double juridiction, mais la transmission ou l'impression provinciale québécoise n'est actuellement pas prise en charge. Pour les autres provinces, les calculs sont présents dans le cœur du logiciel mais pas encore reliés à l'interface utilisateur. Consultez notre page détaillée <a href="scope.html">Portée et limites</a> pour plus d'informations.</p>
                     </div>
                     <div class="faq-card">
                         <h4>Sera-t-il toujours exempt de ventes incitatives ?</h4>
@@ -462,10 +547,11 @@ Impôt Québec dû :   $4,874.00
                 <p>Une initiative de technologie civique sous l'écosystème AXEM Technology.</p>
             </div>
             <div class="footer-links">
-                <a href="#philosophy">Mission</a>
+                <a href="readiness.html">Préparation à la certification</a>
+                <a href="trust.html">Confiance & Transparence</a>
+                <a href="scope.html">Portée & Limites</a>
                 <a href="https://golda.global" target="_blank" rel="noopener">Golda.global</a>
                 <a href="https://gouddi.app" target="_blank" rel="noopener">GoudDi Wallet</a>
-                <a href="https://axem-sx.org" target="_blank" rel="noopener">AXEM-SX</a>
                 <a href="mailto:goldaxem@gmail.com">Support</a>
             </div>
             <div class="footer-copyright">

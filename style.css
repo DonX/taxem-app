@@ -1315,3 +1315,50 @@ p {
         width: 60px;
     }
 }
+}
+
+/* Disclaimer Banner */
+.disclaimer-banner {
+    background-color: rgba(217, 56, 58, 0.1);
+    border-bottom: 1px solid rgba(217, 56, 58, 0.2);
+    padding: 12px 0;
+    font-size: 13px;
+    color: var(--color-text-muted);
+    position: relative;
+    z-index: 10;
+}
+
+.disclaimer-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.disclaimer-badge {
+    background-color: var(--color-red);
+    color: #FFFDF9;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.disclaimer-text {
+    line-height: 1.4;
+}
+
+.disclaimer-link {
+    color: var(--color-gold);
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 4px;
+    transition: color 0.2s ease;
+}
+
+.disclaimer-link:hover {
+    color: var(--color-gold-hover);
+}
+

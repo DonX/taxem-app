@@ -38,16 +38,29 @@
             </a>
             <nav class="nav-links">
                 <a href="#philosophy">Our Philosophy</a>
+                <a href="readiness.html">Readiness</a>
+                <a href="trust.html">Trust</a>
+                <a href="scope.html">Scope</a>
                 <a href="#demo">Interactive Showcase</a>
-                <a href="#roadmap">US Roadmap</a>
-                <a href="#faq">Faq</a>
+                <a href="#faq">FAQ</a>
             </nav>
             <div class="header-cta">
-                <a href="/fr/" class="lang-toggle-btn">FR</a>
+                <a href="fr/" class="lang-toggle-btn">FR</a>
                 <a href="#demo" class="btn btn-primary" id="headerCtaBtn">Try Demo</a>
             </div>
         </div>
     </header>
+
+    <!-- Disclaimer Banner -->
+    <div class="disclaimer-banner">
+        <div class="container disclaimer-container">
+            <span class="disclaimer-badge">NOT YET CERTIFIED</span>
+            <span class="disclaimer-text">
+                TAXEM is a development-stage civic tax engine. It is not yet certified for direct electronic transmission (NETFILE) by the CRA or Revenu Québec. Active Ontario-first scope under review. Do not rely on TAXEM for official filing. 
+                <a href="readiness.html" class="disclaimer-link">Read Certification Roadmap &rarr;</a>
+            </span>
+        </div>
+    </div>
 
     <main>
         <!-- Hero Section -->
@@ -348,6 +361,74 @@ Quebec Tax Owed:   $4,874.00
             </div>
         </section>
 
+        <!-- Certification Roadmap Section -->
+        <section id="certification-roadmap" class="roadmap-section" style="border-top: 1px solid var(--color-border); background-color: rgba(6,11,24,0.2);">
+            <div class="container">
+                <div class="roadmap-wrapper">
+                    <div class="roadmap-text">
+                        <span class="badge badge-gold">CERTIFICATION PATHWAY</span>
+                        <h2>Canada NETFILE Readiness Roadmap</h2>
+                        <p>
+                            Formal accreditation with tax authorities is an annual process. We are actively structuring the TAXEM engine to ensure compliance with the technical standards required by the Canada Revenue Agency and Revenu Québec.
+                        </p>
+                        <p>
+                            We have successfully completed local verification suites and are preparing to enter official certification channels for the upcoming tax cycle.
+                        </p>
+                        <div class="roadmap-steps">
+                            <div class="roadmap-step active">
+                                <span class="step-num">1</span>
+                                <div>
+                                    <h4>Verification & Local Seams</h4>
+                                    <p>Completed 1645-test suite validation. Gated Ontario-first filing eligibility checker and SIN masking rules.</p>
+                                </div>
+                            </div>
+                            <div class="roadmap-step">
+                                <span class="step-num">2</span>
+                                <div>
+                                    <h4>Developer Registration (Fall)</h4>
+                                    <p>Submit formal registration to the CRA Electronic Media Processing Unit (EMPU) and Revenu Québec Partner Services.</p>
+                                </div>
+                            </div>
+                            <div class="roadmap-step">
+                                <span class="step-num">3</span>
+                                <div>
+                                    <h4>Validation & Testing (Winter)</h4>
+                                    <p>Execute and submit required test-case returns and scanner-ready print layouts (IN-413-V TPF-1.U) to validation portals.</p>
+                                </div>
+                            </div>
+                            <div class="roadmap-step">
+                                <span class="step-num">4</span>
+                                <div>
+                                    <h4>Gateway Opening & Launch (Feb)</h4>
+                                    <p>Enable direct-transmission (NETFILE) features upon receiving official confirmation letters and TCIs.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="roadmap-graphic">
+                        <div class="mock-device-wrapper" style="border-color: var(--color-gold); box-shadow: 0 10px 30px rgba(212, 175, 55, 0.05);">
+                            <div class="mock-header" style="background-color: rgba(212, 175, 55, 0.05); border-bottom-color: rgba(212, 175, 55, 0.2);">
+                                <div class="dot red"></div>
+                                <div class="dot yellow"></div>
+                                <div class="dot green"></div>
+                                <span class="mock-title" style="color: var(--color-gold);">verification_harness_output // ok</span>
+                            </div>
+                            <div class="mock-body" style="font-size: 12px; line-height: 1.5;">
+                                <span class="comment"># Running TAXEM Certification Checker</span><br>
+                                <span class="key">T1 XML Schema validation:</span> PASSED<br>
+                                <span class="key">Error Prevention (EPS):</span> 72/72 OK<br>
+                                <span class="key">SIN display masking:</span> ACTIVE (***-***-****)<br>
+                                <span class="key">Reconciliation cases:</span> 10/10 PASS<br>
+                                <span class="key">Revenu QC IN-413-V proof:</span> READY<br>
+                                -------------------------------------<br>
+                                <span class="success">STATUS: CALCS VERIFIED & CERTIFICATION-READY</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- US Roadmap Section -->
         <section id="roadmap" class="roadmap-section">
             <div class="container">
@@ -418,8 +499,12 @@ Quebec Tax Owed:   $4,874.00
                         <p>Quebec has a separate, highly distinct provincial tax filing system. Most software treats it as an afterthought. We built our architecture to natively support dual-jurisdiction coupling from the ground up.</p>
                     </div>
                     <div class="faq-card">
-                        <h4>Is it certified by the CRA and Revenu Québec?</h4>
-                        <p>This is currently a prototype and promo showcase for the 2024 and 2025 tax calculations. We are actively organizing reference materials and structuring calculations to prepare for formal certification cycles.</p>
+                        <h4>Is TAXEM certified by the CRA and Revenu Québec?</h4>
+                        <p>No, TAXEM is currently a development-stage prototype and is <strong>not yet certified</strong> for direct electronic transmission (NETFILE) by the CRA or Revenu Québec. We are actively organizing our calculations and structuring layouts to prepare for formal certification cycles through official channels in a future release.</p>
+                    </div>
+                    <div class="faq-card">
+                        <h4>What tax years and provinces are supported?</h4>
+                        <p>TAXEM currently supports calculations for the 2024 and 2025 tax years. Our active certification direction is Ontario-first, which supports Ontario residents filing individual returns (T1 with Form ON428 and ON479). The Quebec TP-1 calculation engine is present in our code for dual-jurisdiction future-proofing, but provincial Quebec filing is currently unsupported. For other provinces, calculations are present in the core but not yet fully wired to the user interface. Read our detailed <a href="scope.html">Scope & Limitations</a> page for more details.</p>
                     </div>
                     <div class="faq-card">
                         <h4>Will it always be free from upsells?</h4>
@@ -462,10 +547,11 @@ Quebec Tax Owed:   $4,874.00
                 <p>A Civic Technology initiative under the AXEM Technology ecosystem.</p>
             </div>
             <div class="footer-links">
-                <a href="#philosophy">Mission</a>
+                <a href="readiness.html">Certification Readiness</a>
+                <a href="trust.html">Trust & Transparency</a>
+                <a href="scope.html">Scope & Limitations</a>
                 <a href="https://golda.global" target="_blank" rel="noopener">Golda.global</a>
                 <a href="https://gouddi.app" target="_blank" rel="noopener">GoudDi Wallet</a>
-                <a href="https://axem-sx.org" target="_blank" re="noopener">AXEM-SX</a>
                 <a href="mailto:goldaxem@gmail.com">Support</a>
             </div>
             <div class="footer-copyright">

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portée & Limites — TAXEM</title>
+    <meta name="description" content="Couverture des calculs du moteur TAXEM, feuillets d'impôt pris en charge, limites régionales et règles d'exclusion de transmission.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Outfit:wght@300;400;500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .content-layout {
+            padding: 80px 0;
+            position: relative;
+        }
+        .content-layout::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+        .content-card {
+            background-color: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 48px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            margin-top: 32px;
+            position: relative;
+            z-index: 1;
+        }
+        .content-card h3 {
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: var(--color-gold);
+            font-size: 20px;
+        }
+        .content-card h3:first-of-type {
+            margin-top: 0;
+        }
+        .content-card p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--color-text-muted);
+        }
+        .content-card ul {
+            margin-left: 24px;
+            margin-bottom: 24px;
+            color: var(--color-text-muted);
+        }
+        .content-card li {
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--color-gold);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 24px;
+            transition: color 0.2s ease, transform 0.2s ease;
+            gap: 8px;
+            z-index: 2;
+            position: relative;
+        }
+        .back-link:hover {
+            color: var(--color-gold-hover);
+            transform: translateX(-4px);
+        }
+        .scope-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin: 24px 0;
+        }
+        .scope-box {
+            background-color: #060B18;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 24px;
+        }
+        .scope-box h4 {
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+        .scope-box.supported h4 {
+            color: #6BEB93;
+        }
+        .scope-box.unsupported h4 {
+            color: #FF6B6B;
+        }
+        @media (max-width: 768px) {
+            .scope-columns {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Decorative Line -->
+    <div class="top-accent-line"></div>
+
+    <!-- Navigation Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="../fr/index.html" class="logo-container">
+                <svg class="pillar-logo" width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 25 L85 25 L80 15 L20 15 Z" fill="#D4AF37" />
+                    <rect x="42" y="25" width="16" height="55" fill="#FFFDF9" rx="2" />
+                    <rect x="30" y="80" width="40" height="8" fill="#FFFDF9" rx="1" />
+                    <line x1="47" y1="30" x2="47" y2="75" stroke="#1C2D42" stroke-width="2" />
+                    <line x1="53" y1="30" x2="53" y2="75" stroke="#1C2D42" stroke-width="2" />
+                </svg>
+                <div class="logo-text">
+                    <span class="logo-title">TAX<span class="gold-text">EM</span></span>
+                    <span class="logo-subtitle">CIVIC TECH</span>
+                </div>
+            </a>
+            <div class="header-cta">
+                <a href="../scope.html" class="lang-toggle-btn">EN</a>
+                <a href="../fr/index.html" class="btn btn-secondary">Retour à l'accueil</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container content-layout">
+        <a href="../fr/index.html" class="back-link">
+            <span>&larr;</span> Retour à l'accueil
+        </a>
+
+        <div class="section-header" style="text-align: left; margin: 0;">
+            <span class="badge">COUVERTURE DES SPÉCIFICATIONS</span>
+            <h2>Portée & Limites</h2>
+            <p>Découvrez les calculs pris en charge par le moteur TAXEM et les scénarios exclus dans la version v1.</p>
+        </div>
+
+        <div class="content-card">
+            <h3>Portée initiale limitée à l'Ontario sous examen</h3>
+            <p>
+                Afin de maintenir des normes d'ingénierie rigoureuses, la version v1 de TAXEM est limitée à un périmètre de déclarations de revenus ciblé. Notre direction de certification active est centrée sur les **résidents de l'Ontario** remplissant des déclarations de revenus individuelles (déclaration T1) avec des feuillets simples.
+            </p>
+
+            <div class="scope-columns">
+                <div class="scope-box supported">
+                    <h4>Calculs pris en charge</h4>
+                    <ul>
+                        <li>Calculs individuels fédéraux (T1).</li>
+                        <li>Impôt provincial de l'Ontario (formulaire ON428) comprenant 5 paliers progressifs et 2 niveaux de surtaxes.</li>
+                        <li>Réductions d'impôt et crédits familiaux de l'Ontario.</li>
+                        <li>Crédits remboursables de l'Ontario (formulaire ON479), y compris les contributions politiques, les actions accréditives et la subvention aux personnes âgées propriétaires pour l'impôt foncier.</li>
+                        <li>Ajustements de base pour les feuillets d'emploi (T4, T5, cotisations REER).</li>
+                    </ul>
+                </div>
+                <div class="scope-box unsupported">
+                    <h4>Non pris en charge actuellement</h4>
+                    <ul>
+                        <li>Déclarations en dehors de l'Ontario (C.-B., AB, SK, MB, etc.).</li>
+                        <li>Production de la déclaration provinciale du Québec (TP-1) - voir ci-dessous.</li>
+                        <li>Revenus de travail autonome (formulaire T2125).</li>
+                        <li>Revenus de location (formulaire T776).</li>
+                        <li>Déclarations pour plusieurs administrations (formulaire T2203).</li>
+                        <li>Déclarations de personnes décédées ou de faillite.</li>
+                        <li>Formulaire de demande de prestation Trillium de l'Ontario (ON-BEN).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Présence des calculs du TP-1 du Québec</h3>
+            <p>
+                L'architecture du moteur TAXEM prend en charge le traitement conjoint des deux ordres de gouvernement (Fédéral + Québec) dès le premier jour. Cependant, bien que la **logique de calcul du TP-1 du Québec soit présente dans le code de notre moteur**, l'autorisation de transmission par NetFile Québec et la validation des formulaires d'impression TPF-1.U sont **différées** pour ce cycle.
+            </p>
+            <p>
+                Les résidents du Québec peuvent utiliser le moteur pour effectuer des estimations comparatives, mais ils ne peuvent pas imprimer ni transmettre de déclarations TP-1 via TAXEM pour le moment et doivent déclarer leurs impôts provinciaux par d'autres moyens.
+            </p>
+
+            <h3>Module de validation d'admissibilité</h3>
+            <p>
+                TAXEM ne produit pas de calculs erronés en ignorant silencieusement les données non prises en charge. Le moteur contient un **module de validation d'admissibilité**. Lorsqu'un utilisateur importe ses feuillets ou saisit ses données, le module valide le profil. Si un scénario non géré (comme des revenus de travail autonome ou une adresse hors Ontario) est détecté, le moteur définit la déclaration comme <code>unsupported</code> (non prise en charge), suspend les chemins de transmission et invite l'utilisateur à déclarer ses revenus par les canaux officiels existants.
+            </p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo-block">
+                    <span class="logo-title">TAX<span class="gold-text">EM</span></span>
+                </div>
+                <p>Une initiative de technologie civique sous l'écosystème AXEM Technology.</p>
+            </div>
+            <div class="footer-links">
+                <a href="../fr/readiness.html">Préparation à la certification</a>
+                <a href="../fr/trust.html">Confiance & Transparence</a>
+                <a href="../fr/scope.html">Portée & Limites</a>
+                <a href="https://golda.global" target="_blank" rel="noopener">Golda.global</a>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2026 AXEM Technology. Tous droits réservés. Conçu pour respecter la dignité des utilisateurs.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
