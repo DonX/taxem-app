@@ -298,6 +298,14 @@ p {
     gap: 16px;
 }
 
+.hero-disclaimer {
+    max-width: 760px;
+    margin-top: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--color-text-muted);
+}
+
 .hero-graphic {
     display: flex;
     justify-content: center;
